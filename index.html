@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Course Dashboard</title>
+    <script defer src="/_vercel/insights/script.js"></script>
     <style>
         :root {
             --bg-color: #0f0f12;
@@ -37,7 +38,6 @@
             transition: background-color var(--transition), color var(--transition);
         }
 
-        /* Bento Grid Configuration */
         .bento-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr); 
@@ -58,21 +58,9 @@
             flex-direction: column;
         }
 
-        .links-card {
-            grid-column: span 1;
-            grid-row: span 3;
-            padding: 30px;
-        }
-
-        .timetable-card {
-            grid-column: span 3;
-            grid-row: span 2;
-        }
-
-        .calendar-card {
-            grid-column: span 3;
-            grid-row: span 1;
-        }
+        .links-card { grid-column: span 1; grid-row: span 3; padding: 30px; }
+        .timetable-card { grid-column: span 3; grid-row: span 2; }
+        .calendar-card { grid-column: span 3; grid-row: span 1; }
 
         header { margin-bottom: 25px; }
         header h1 { font-size: 1.4rem; font-weight: 700; letter-spacing: -0.5px; }
@@ -104,74 +92,40 @@
         .arrow { font-size: 1rem; opacity: 0.5; }
 
         .image-container {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 10px;
-            background: rgba(0,0,0,0.02);
+            width: 100%; height: 100%;
+            display: flex; align-items: center; justify-content: center;
+            padding: 10px; background: rgba(0,0,0,0.02);
         }
 
-        .bento-img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            border-radius: 18px;
-        }
+        .bento-img { width: 100%; height: 100%; object-fit: contain; border-radius: 18px; }
 
         .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--card-bg);
-            border: 1px solid var(--link-border);
-            color: var(--text-main);
-            padding: 10px 16px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 0.85rem;
-            z-index: 100;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
+            position: fixed; top: 20px; right: 20px;
+            background: var(--card-bg); border: 1px solid var(--link-border);
+            color: var(--text-main); padding: 10px 16px; border-radius: 50px;
+            cursor: pointer; font-size: 0.85rem; z-index: 100;
+            box-shadow: var(--shadow); transition: var(--transition);
         }
 
         .copy-link.copied { background: #2ecc71 !important; color: white !important; }
 
-        /* --- Footer Section --- */
+        /* --- Minimal Footer --- */
         footer {
             max-width: 1200px;
-            margin: 40px auto 20px;
-            padding: 30px 20px;
+            margin: 60px auto 20px;
+            padding: 20px;
             text-align: center;
             border-top: 1px solid var(--link-border);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-            transition: var(--transition);
         }
 
-        .visitor-counter {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 0.85rem;
-            color: var(--text-sub);
+        .made-by { 
+            font-size: 0.9rem; 
+            color: var(--text-sub); 
+            letter-spacing: 0.5px;
         }
+        
+        .made-by span { color: var(--accent); font-weight: 700; }
 
-        .made-by {
-            font-size: 0.9rem;
-            color: var(--text-sub);
-            letter-spacing: 0.3px;
-        }
-
-        .made-by span {
-            color: var(--accent);
-            font-weight: 700;
-        }
-
-        /* Responsive Breakpoints */
         @media (max-width: 1024px) {
             .bento-grid { grid-template-columns: repeat(2, 1fr); }
             .links-card { grid-column: span 1; grid-row: span 2; }
@@ -182,7 +136,6 @@
         @media (max-width: 600px) {
             .bento-grid { grid-template-columns: 1fr; }
             .links-card, .timetable-card, .calendar-card { grid-column: span 1; grid-row: auto; }
-            footer { margin-top: 20px; }
         }
     </style>
 </head>
@@ -199,31 +152,31 @@
     
             <div class="links-list">
                 <a href="https://drive.google.com/drive/folders/1F02iM__U2fmn9TEnLd3apdjNsuzErvpG" class="subject-link" target="_blank">
-                    <span class="link-text">CD Drive(Swati Pratap Jagdale)</span>
+                    <span class="link-text">CD Drive</span>
                     <span class="arrow">→</span>
                 </a>
                 
                 <a href="https://vibhamasti.github.io/notes/cs351/" class="subject-link" target="_blank">
-                    <span class="link-text">CD(Vibha Notes)</span>
+                    <span class="link-text">CD Notes</span>
                     <span class="arrow">→</span>
                 </a>
     
                 <a href="https://drive.google.com/drive/folders/1rhTLqn-c5eewNBjQlK9MsQclOF2vt-jN" class="subject-link" target="_blank">
-                    <span class="link-text">DBT Drive(Gamini Joshi)</span>
+                    <span class="link-text">DBT Drive</span>
                     <span class="arrow">→</span>
                 </a>
     
                 <a href="https://drive.google.com/drive/folders/1pBB2at07iR69jyvMZ1RgW_adCQ_ui9jA" class="subject-link" target="_blank">
-                    <span class="link-text">CC Drive(Uday Bhaskar)</span>
+                    <span class="link-text">CC Drive</span>
                     <span class="arrow">→</span>
                 </a>
     
                 <a href="https://vibhamasti.github.io/notes/cs352/" class="subject-link" target="_blank">
-                    <span class="link-text">CC(Vibha notes)</span>
+                    <span class="link-text">CC Notes</span>
                     <span class="arrow">→</span>
                 </a>
     
-                <a href="https://classroom.google.com/c/ODM4NjA3NTczNTA5/?authuser=pes2ug23cs098@pesu.pes.edu" class="subject-link copy-link">
+                <a href="https://classroom.google.com/c/ODM4NjA3NTczNTA5" class="subject-link copy-link">
                     <span class="icon">📋</span>
                     <span class="link-text">OOAD Link</span>
                 </a>
@@ -249,10 +202,6 @@
     </main>
 
     <footer>
-        <div class="visitor-counter">
-            <span>Unique Visitors</span>
-            <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fcourse-dashboard-indol.vercel.app&count_bg=%230A84FF&title_bg=%232C2C2E&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false" alt="Visitor Counter">
-        </div>
         <div class="made-by">Made by <span>Giri</span></div>
     </footer>
 
