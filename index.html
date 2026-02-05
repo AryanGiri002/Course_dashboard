@@ -138,7 +138,7 @@
 
         .copy-link.copied { background: #2ecc71 !important; color: white !important; }
 
-        /* --- Footer Styling --- */
+        /* --- Footer Section --- */
         footer {
             max-width: 1200px;
             margin: 40px auto 20px;
@@ -148,13 +148,14 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
+            transition: var(--transition);
         }
 
         .visitor-counter {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             font-size: 0.85rem;
             color: var(--text-sub);
         }
@@ -162,11 +163,12 @@
         .made-by {
             font-size: 0.9rem;
             color: var(--text-sub);
+            letter-spacing: 0.3px;
         }
 
         .made-by span {
             color: var(--accent);
-            font-weight: 600;
+            font-weight: 700;
         }
 
         /* Responsive Breakpoints */
@@ -180,6 +182,7 @@
         @media (max-width: 600px) {
             .bento-grid { grid-template-columns: 1fr; }
             .links-card, .timetable-card, .calendar-card { grid-column: span 1; grid-row: auto; }
+            footer { margin-top: 20px; }
         }
     </style>
 </head>
@@ -247,8 +250,8 @@
 
     <footer>
         <div class="visitor-counter">
-            <span>Unique Visitors:</span>
-            <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgiri-dashboard.example&count_bg=%230A84FF&title_bg=%232C2C2E&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false" alt="Hits">
+            <span>Unique Visitors</span>
+            <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fcourse-dashboard-indol.vercel.app&count_bg=%230A84FF&title_bg=%232C2C2E&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false" alt="Visitor Counter">
         </div>
         <div class="made-by">Made by <span>Giri</span></div>
     </footer>
